@@ -6,20 +6,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-np.set_printoptions(precision=2)  # reduced display precision on numpy arrays
+"p.set_printoptions(precision=2)  # reduced display precision on numpy arrays"
 
 data = pd.read_csv(r'Data\UB_Evals_Data.csv')
 
-print(data)
 
-
-
-
-
-
-X_train = np.array([[2104, 5, 1, 45], [1416, 3, 2, 40], [852, 2, 1, 35]])
-y_train = np.array([460, 232, 178])
-
+X_train = np.array(data[['TD_OverALL', 'Hotel', 'Meal']])
+y_train = np.array(data['NPS']*100)
 
 m, n = X_train.shape
 
@@ -117,12 +110,14 @@ def gradient_descent(X, y, w_in, b_in, cost_function, gradient_function, alpha, 
 
 
 # initialize parameters
-initial_w = np.zeros(n)
-initial_b = 0.
+initial_w = np.array([5.48128116, 5.88417303, 6.14136162])
+initial_b = 1.02
 # some gradient descent settings
 iterations = 1000
 alpha = 5.0e-7
 # run gradient descent 
+
+
 w_final, b_final, J_hist = gradient_descent(X_train, y_train, initial_w, initial_b,
                                                     compute_cost, compute_gradient, 
                                                     alpha, iterations)
@@ -142,6 +137,5 @@ ax1.set_title("Cost vs. iteration");  ax2.set_title("Cost vs. iteration (tail)")
 ax1.set_ylabel('Cost')             ;  ax2.set_ylabel('Cost') 
 ax1.set_xlabel('iteration step')   ;  ax2.set_xlabel('iteration step') 
 plt.show()
-
 
 

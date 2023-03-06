@@ -110,10 +110,10 @@ def gradient_descent(X, y, w_in, b_in, cost_function, gradient_function, alpha, 
 
 
 # initialize parameters
-initial_w = np.array([5.48128116, 5.88417303, 6.14136162])
-initial_b = 1.02
+initial_w = np.array([5.61723633, 6.02167648, 6.3014869 ])
+initial_b = 1.007810707003508
 # some gradient descent settings
-iterations = 1000
+iterations = 10000
 alpha = 5.0e-7
 # run gradient descent 
 
@@ -121,7 +121,7 @@ alpha = 5.0e-7
 w_final, b_final, J_hist = gradient_descent(X_train, y_train, initial_w, initial_b,
                                                     compute_cost, compute_gradient, 
                                                     alpha, iterations)
-print(f"b,w found by gradient descent: {b_final:0.2f},{w_final} ")
+print(f"b,w found by gradient descent: {b_final},{w_final} ")
 m,_ = X_train.shape
 for i in range(m):
     print(f"prediction: {np.dot(X_train[i], w_final) + b_final:0.2f}, target value: {y_train[i]}")

@@ -124,7 +124,7 @@ w_final, b_final, J_hist = gradient_descent(X_train, y_train, initial_w, initial
 print(f"b,w found by gradient descent: {b_final},{w_final} ")
 m,_ = X_train.shape
 for i in range(m):
-    print(f"prediction: {np.dot(X_train[i], w_final) + b_final:0.2f}, target value: {y_train[i]}")
+    print(f"prediction: {np.dot(X_train[i], w_final) + b_final}, target value: {y_train[i]}")
 
 
 
